@@ -1,13 +1,13 @@
 public class Equipments {
     private String name, type;
     private int level;
-    private double base_Atk, base_Def, base_Speed; // base stat for rebalance
-    private double atk, def, hp, mp, speed; // stat
+    private int base_Atk, base_Def, base_Spd; // base stat for rebalance
+    private int atk, def, hp, mp, spd; // stat
     public Equipments (String type, int lv) {
         this.type = type;
         this.base_Atk = 10;
         this.base_Def = 10;
-        this.base_Speed = 10;
+        this.base_Spd = 10;
         CalculateStat(lv);
     }
 
@@ -16,13 +16,13 @@ public class Equipments {
         switch (type) {
             case "Sword":
                 name = "Sword";
-                atk = Math.ceil(base_Atk * (1 + 0.1 * level));
-                speed = -Math.ceil(base_Speed * (0.1 + (0.04 * level)));
+                atk = (int)Math.ceil(base_Atk * (1 + 0.1 * level));
+                spd = (int)-Math.ceil(base_Spd * (0.1 + (0.04 * level)));
                 break;
             case "Shield":
                 name = "Shield";
-                def = Math.ceil(base_Def * (1 + 0.05 * level));
-                speed = -Math.ceil(base_Speed * (0.1 + (0.08 * level)));
+                def = (int)Math.ceil(base_Def * (1 + 0.05 * level));
+                spd = (int)-Math.ceil(base_Spd * (0.1 + (0.08 * level)));
                 break;
             default:
                 break;
@@ -38,7 +38,7 @@ public class Equipments {
     public int getLevel () {return level;}
     public double getAtk () {return atk;}
     public double getDef () {return def;}
-    public double getSpeed () {return speed;}
+    public double getSpeed () {return spd;}
     public double getHp () {return hp;}
     public double getMp () {return mp;}
 }
